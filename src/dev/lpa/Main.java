@@ -1,5 +1,6 @@
 package dev.lpa;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Main {
@@ -8,7 +9,7 @@ public class Main {
 
         // IDE flags these as unnecessary or deprecated
         Integer boxedInt = Integer.valueOf(15); // preferred but unnecessary
-        Integer deprecatedBoxing = new Integer(15); // deprecated since Java 9
+//        Integer deprecatedBoxing = new Integer(15); // deprecated since Java 9
         int unboxedInt = boxedInt.intValue(); // unnecessary
 
         // Automatic
@@ -32,8 +33,32 @@ public class Main {
         // This wouldn't work on int but it works on this bc it's Integer
         System.out.println(wrapperArray[0].getClass().getName());
 
+        Character[] characterArray = {'a', 'b', 'c', 'd'};
+        System.out.println(Arrays.toString(characterArray));
+
+
+        var ourList = getList(1, 2, 3, 4, 5);
+        System.out.println(ourList);
+
     }
 
+
+    private static ArrayList<Integer> getList(Integer... varargs){
+         ArrayList<Integer> aList = new ArrayList<>();
+         for(int i: varargs){
+             aList.add(i);
+         }
+         return aList;
+    }
+
+
+    private static int returnAnInt(Integer i){
+        return i;
+    }
+
+    private static Integer returnAnInteger(int i){
+        return i;
+    }
 
     private static Double getDoubleObj  () {
         // Unnecessary
@@ -43,5 +68,7 @@ public class Main {
     private static double getLiteralDouble (){
         return 100.00;
     }
+
+
 
 }
