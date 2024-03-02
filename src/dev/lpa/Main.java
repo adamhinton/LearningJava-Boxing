@@ -1,5 +1,7 @@
 package dev.lpa;
 
+import java.util.Arrays;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -19,6 +21,17 @@ public class Main {
 
         double resultBoxed = getLiteralDouble();
         double resultUnboxed = getDoubleObj();
+
+
+        // Interestingly, these default to `null` because Integers are objects --- wrapper classes
+        Integer[] wrapperArray = new Integer[5];
+        wrapperArray[0] = 50;
+        // [50, null, null, null, null]
+        System.out.println(Arrays.toString(wrapperArray));
+
+        // This wouldn't work on int but it works on this bc it's Integer
+        System.out.println(wrapperArray[0].getClass().getName());
+
     }
 
 
